@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>All Books</title>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="admin-page.html">Home</a></li>
+            <li><a href="All-books.html">All Books</a></li>
+            <li><a href="add-book.html">Add Book</a></li>
+            <label for="choose">Search by:</label>
+            <select id="choose" name="choose">
+                <option values="ID">ID</option>
+                <option value="title">Title</option>
+                <option value="author">Author</option>
+                <option value="category">Category</option>
+            </select>
+            <input type="text" id="search" name="query" placeholder="Write ID,Title,Author or category">
+            <button type="submit">Search</button>
+        </ul>
+    </nav>
+    <hr>
+    <!-- Table of all books -->
+    <table border="1">
+        <tr>
+            <th>Book ID</th>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Availability</th>
+            <th colspan="3">Action</th>
+        </tr>
+        <tr>
+            <th>1</th>
+            <th>Book1</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>NOT Available</th>
+            <th colspan="3">
+                <a><button>edit</button></a>
+                <a><button>Delete</button></a>
+                <a href="info_book.html#book1" target=_blank><button>Details</button></a>
+            </th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <th>Book2</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Available</th>
+            <th colspan="3">
+                <a><button>edit</button></a>
+                <a><button>Delete</button></a>
+                <a href="info_book.html#book2" target=_blank><button>Details</button></a>
+            </th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>Book3</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Available</th>
+            <th colspan="3">
+                <a><button>edit</button></a>
+                <a><button>Delete</button></a>
+                <a href="info_book.html#book3" target=_blank><button>Details</button></a>
+            </th>
+        </tr>
+        <tr>
+            <th>4</th>
+            <th>Book4</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Available</th>
+            <th colspan="3">
+                <a><button>edit</button></a>
+                <a><button>Delete</button></a>
+                <a href="info_book.html#book4" target=_blank><button>Details</button></a>
+            </th>
+        </tr>
+        <tr>
+            <th>5</th>
+            <th>Book5</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Available</th>
+            <th colspan="3">
+                <a><button>edit</button></a>
+                <a><button>Delete</button></a>
+                <a href="info_book.html#book5" target=_blank><button>Details</button></a>
+            </th>
+        </tr>
+        <tr>
+            <th>7</th>
+            <th>Book7</th>
+            <th>Category</th>
+            <th>Author</th>
+            <th>Available</th>
+            <th colspan="3">
+                <a><button>edit</button></a>
+                <a><button>Delete</button></a>
+                <a href="info_book.html#book7" target=_blank><button>Details</button></a>
+            </th>
+        </tr>
+</body>
