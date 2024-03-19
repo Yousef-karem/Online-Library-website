@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Library System Login</title>
+</head>
+
+<body>
+    <h1>Library System Login</h1>
+    <dev>
+        <h2>Sign in</h2>
+        <form id="signin-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Name" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="student">Student</option>
+            </select><br><br>
+
+            <input type="submit" value="Sign in">
+            <hr>
+        </form>
+        <script>
+            document.getElementById("signin-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+                var role = document.getElementById("role").value;
+                if (role === "admin") {
+                    window.location.href = "admin-page.html";
+                } else if (role === "student") {
+                    window.location.href = "student-Page.html";
+                } else {
+                    alert("Please try again.");
+                }
+            });
+        </script>
+    </dev>
+    <dev>
+        <form id="signup-form">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" placeholder="Name" required><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+            <label for="phoneNumber">Phone number</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone number"><br><br>
+            <label for="userEmail">Email</label>
+            <input type="email" id="userEmail" placeholder="Email address" name="userEmail" required><br><br>
+            <input type="submit" value="Sign up">
+            <select id="role" name="role" required>
+                <option value="admin">Admin</option>
+                <option value="student">Student</option>
+            </select><br><br>
+        </form>
+        <script>
+            document.getElementById("signup-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+                var role = document.getElementById("role").value;
+                if (role === "admin") {
+                    window.location.href = "admin-page.html";
+                } else if (role === "student") {
+                    window.location.href = "student-Page.html";
+                } else {
+                    alert("Please try again.");
+                }
+            });
+        </script>
+    </dev>
+
+</body>
+
+</html>
