@@ -4,26 +4,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/master.css">
 </head>
 
 <body>
     <section>
-        <!-- navigation bar -->
         <nav>
-            <div>
-                <img src="Images/project web.jpg" width="150" height="200">
+            <div class="logoimg">
+                <img src="Images/project_web.jpg" width="100" height="100">
             </div>
             <ul>
-                <li><a href="home.html">Home</a></li>
+                <li><a href="student-page.html">Home</a></li>
                 <li><a href="Books.html">Books</a></li>
                 <li><a href="borrow list.html">Borrow list</a></li>
             </ul>
             <form action="Books.html" method="GET">
                 <label for="choose">Search by:</label>
                 <select id="choose" name="choose">
-                    <option value="title">Title</option>
-                    <option value="author">Author</option>
-                    <option value="category">Category</option>
+                    <option value="title" class="title">Title</option>
+                    <option value="author" class="author">Author</option>
+                    <option value="category" class="category">Category</option>
                 </select>
                 <input type="text" id="search" name="query" placeholder="Write Title,Author or category">
                 <button type="submit">Search</button>
@@ -31,9 +31,9 @@
     </section>
     <div class="book">
         <h1>Most Popular</h1>
-        <div class="outer fram">
-            <div id="book1">
-                <div class="inner fram">
+        <div class="outerfram">
+            <div class="innerfram">
+                <div id="book1">
                     <div class="image">
                         <img src="Images/img1.jpg" height="200">
                     </div>
@@ -42,7 +42,7 @@
                         <p class="year">2017</p>
                         <p class="author">Dorling Kindersley</p>
                         <p class="category">Historical</p>
-                        <p class="price">20$</p>
+                        <p class="price"><b>20$</b></p>
                         <br>
                         <label for="Not">
                             <p><del><strong>Available</strong></del></p>
@@ -53,8 +53,8 @@
 
                 </div>
             </div>
-            <div id="book2">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book2">
                     <div class="image">
                         <br>
                         <img src="Images/img2.jpg" height="200">
@@ -64,7 +64,7 @@
                         <p class="year">2019</p>
                         <p class="author">Peter Farrell</p>
                         <p class="category">Mathematics - Computational</p>
-                        <p class="price">28.9$</p>
+                        <p class="price"><b>28.9$</b></p>
                         <br>
                         <button onclick>Borrow</button>
                         <button onclick>Buy</button>
@@ -73,8 +73,8 @@
 
                 </div>
             </div>
-            <div id="book3">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book3">
                     <div class="image">
                         <br>
                         <img src="Images/img3.jpg" height="250">
@@ -84,7 +84,7 @@
                         <p class="year">2003</p>
                         <p class="author">Hergé</p>
                         <p class="category">Adventures</p>
-                        <p class="price">36.9</p>
+                        <p class="price"><b>36.9</b></p>
                         <br>
                         <button onclick>Borrow</button>
                         <button onclick>Buy</button>
@@ -93,8 +93,8 @@
 
                 </div>
             </div>
-            <div id="book4">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book4">
                     <div class="image">
                         <br>
                         <img src="Images/img4.jpg" height="250">
@@ -104,7 +104,7 @@
                         <p class="year">2021</p>
                         <p class="author">Eric LaRocca</p>
                         <p class="category">Fiction - Horror</p>
-                        <p class="price">19.8$</p>
+                        <p class="price"><b>19.8$</b></p>
                         <br>
                         <button onclick>Borrow</button>
                         <button onclick>Buy</button>
@@ -113,8 +113,8 @@
 
                 </div>
             </div>
-            <div id="book5">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book5">
                     <div class="image">
                         <br>
                         <img src="Images/img5.jpg" height="200">
@@ -124,7 +124,7 @@
                         <p class="year">2003</p>
                         <p class="author">William Blum</p>
                         <p class="category">Society, Politics & Philosophy - Warfare & Defence</p>
-                        <p class="price">48$</p>
+                        <p class="price"><b>48$</b></p>
                         <br>
                         <button onclick>Borrow</button>
                         <button onclick>Buy</button>
@@ -133,8 +133,8 @@
 
                 </div>
             </div>
-            <div id="book6">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book6">
                     <div class="image">
                         <br>
                         <img src="Images/img6.jpg" height="250">
@@ -144,7 +144,7 @@
                         <p class="year">2001</p>
                         <p class="author">John Losee</p>
                         <p class="category">Society, Politics & Philosophy</p>
-                        <p class="price">19.6$</p>
+                        <p class="price"><b>19.6$</b></p>
                         <br>
                         <label for="Not">
                             <p><del><strong>Available</strong></del></p>
@@ -155,8 +155,8 @@
                     </div>
                 </div>
             </div>
-            <div id="book7">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book7">
                     <div class="image">
                         <br>
                         <img src="Images/img7.jpg" height="250">
@@ -166,7 +166,7 @@
                         <p class="year">2019</p>
                         <p class="author">Carroll Lewis</p>
                         <p class="category">Society, Politics & Philosophy -</p>
-                        <p class="price">40$</p>
+                        <p class="price"><b>40$</b></p>
                         <br>
                         <label for="Not">
                             <p><del><strong>Available</strong></del></p>
@@ -178,8 +178,8 @@
 
                 </div>
             </div>
-            <div id="book8">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book8">
                     <div class="image">
                         <br>
                         <img src="Images/img8.jpg" height="250">
@@ -189,7 +189,7 @@
                         <p class="year">2011</p>
                         <p class="author">Wendelin Van Draanen</p>
                         <p class="category">Fiction</p>
-                        <p class="price">25$</p>
+                        <p class="price"><b>25$</b></p>
                         <br>
                         <button onclick>Borrow</button>
                         <button onclick>Buy</button>
@@ -198,8 +198,8 @@
 
                 </div>
             </div>
-            <div id="book9">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book9">
                     <div class="image">
                         <br>
                         <img src="Images/img9.jpg" height="250">
@@ -209,7 +209,7 @@
                         <p class="year">2008</p>
                         <p class="author">Neil Gaiman</p>
                         <p class="category">Children's Books - Science Fiction &</p>
-                        <p class="price">30$</p>
+                        <p class="price"><b>30$</b></p>
                         <br>
                         <button onclick>Borrow</button>
                         <button onclick>Buy</button>
@@ -218,8 +218,8 @@
 
                 </div>
             </div>
-            <div id="book10">
-                <div class="inner fram">
+            <div class="innerfram">
+                <div id="book10">
                     <div class="image">
                         <br>
                         <img src="Images/img10.jpg" height="250">
@@ -229,7 +229,7 @@
                         <p class="year">2007</p>
                         <p class="author">Roger Ford, R.G. Grant, A. Gilbert, Philip P Parker, R. Holmes</p>
                         <p class="category">Historical</p>
-                        <p class="price">34&</p>
+                        <p class="price"><b>34&</b></p>
                         <br>
                         <button onclick>Borrow</button>
                         <button onclick>Buy</button>
@@ -238,7 +238,6 @@
 
                 </div>
             </div>
-
         </div>
 
     </div>

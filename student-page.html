@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Libarary</title>
+    <link rel="stylesheet" href="Css/master.css">
 </head>
 
 <body>
     <section>
         <nav>
-            <div>
-                <img src="Images/project web.jpg" width="150" height="200">
+            <div class="logoimg">
+                <img src="Images/project_web.jpg" width="100" height="100">
             </div>
             <ul>
                 <li><a href="student-page.html">Home</a></li>
@@ -21,22 +22,31 @@
             <form action="Books.html" method="GET">
                 <label for="choose">Search by:</label>
                 <select id="choose" name="choose">
-                    <option value="title">Title</option>
-                    <option value="author">Author</option>
-                    <option value="category">Category</option>
+                    <option value="title" class="title">Title</option>
+                    <option value="author" class="author">Author</option>
+                    <option value="category" class="category">Category</option>
                 </select>
                 <input type="text" id="search" name="query" placeholder="Write Title,Author or category">
                 <button type="submit">Search</button>
         </nav>
     </section>
-    <div>
-        <h1>Welcome to our Libarary</h1>
-        <h2>Student</h2>
-        <label for="username">Username:</label>
-        <input type="text" value="Student" readonly><br><br>
-        <label for="userEmail">Email</label>
-        <input type="email" value="Student@gmail.com" readonly><br><br>
-        <button type="submit">Edit Details</button><br><br>
+    <div id="home">
+        <h1>Welcome to our Libarary<br><span>Student</span></h1>
+        <label for="username" id="username">Username:</label>
+        <input type="text" value="Student" readonly id="usern"><br><br>
+        <label for="userEmail" id="userEmail">Email</label>
+        <input type="email" value="Student@gmail.com" readonly id="usere"><br><br>
+        <button type="submit" id="submit">Edit Details</button><br><br>
+        <!--<div id="dv">-->
+        <h2>
+            <pre>"Libraries store the energy that fuels the imagination.
+            They open up windows to the world and inspire us to explore
+            and achieve and contribute to improving our quality of life.
+            Libraries change lives for the better." 
+           <span>- Sidney Sheldon</span></pre>
+        </h2>
+        <img src="Images/home2.jpg" height="400">
+        <!--</div>-->
     </div>
 
 </body>
