@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Css/master.css">
 </head>
 
 <body>
     <section>
         <nav>
-            <div>
-                <img src="Images/project web.jpg" width="150" height="200">
+            <div class="logoimg">
+                <img src="Images/project_web.jpg" width="100" height="100">
             </div>
             <ul>
                 <li><a href="student-page.html">Home</a></li>
@@ -20,9 +21,9 @@
             <form action="Books.html" method="GET">
                 <label for="choose">Search by:</label>
                 <select id="choose" name="choose">
-                    <option value="title">Title</option>
-                    <option value="author">Author</option>
-                    <option value="category">Category</option>
+                    <option value="title" class="title">Title</option>
+                    <option value="author" class="author">Author</option>
+                    <option value="category" class="category">Category</option>
                 </select>
                 <input type="text" id="search" name="query" placeholder="Write Title,Author or category">
                 <button type="submit">Search</button>
