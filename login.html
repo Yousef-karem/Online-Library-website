@@ -4,72 +4,107 @@
 <head>
     <meta charset="UTF-8">
     <title>Library System Login</title>
+    <link rel="stylesheet" href="Css/login.css">
 </head>
 
-<body>
-    <h1>Library System Login</h1>
-    <dev>
-        <h2>Sign in</h2>
-        <form id="signin-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Name" required><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+<body style="background: url(Images/log1.jpg); background-position: center; background-size: cover;">
+    <div class="sign-back">
+        <div class="top">
+            <h1 class="login-h1">Library System Login</h1>
+        </div>
+        <div class="bottom">
+            <div class="sign-in">
+                <h2>Sign in</h2>
+                <form id="signin-form">
+                    <input type="text" id="username" name="username" placeholder="Username / Email" required><br><br>
+                    <input type="password" id="password" name="password" placeholder="Password" required><br><br>
+                    <select id="role" name="role" required>
+                        <option value="admin" class="option">Admin</option>
+                        <option value="student" class="option">Student</option>
+                    </select><br><br>
+                    <input type="submit" id="submit" value="Sign in">
+                </form>
+            </div>
+            <div class="separator"></div>
+            <div class="sign-up">
+                <h2>Sign up</h2>
+                <form id="signup-form">
+                    <input type="text" id="signup-username" name="username" placeholder="Username" required><br><br>
+                    <input type="password" id="signup-password" name="password" placeholder="Password" required><br><br>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone number"><br><br>
+                    <input type="email" id="userEmail" placeholder="Email address" name="userEmail" required><br><br>
+                    <select id="signup-role" name="role" required>
+                        <option value="admin" class="option">Admin</option>
+                        <option value="student" class="option">Student</option>
+                    </select><br><br>
+                    <input type="submit" id="signup-submit" value="Sign up">
+                </form>
+            </div>
+        </div>
+    </div>
 
-            <label for="role">Role:</label>
-            <select id="role" name="role" required>
-                <option value="admin">Admin</option>
-                <option value="student">Student</option>
-            </select><br><br>
-
-            <input type="submit" value="Sign in">
-            <hr>
-        </form>
-        <script>
-            document.getElementById("signin-form").addEventListener("submit", function (event) {
-                event.preventDefault();
-                var role = document.getElementById("role").value;
+    <script>
+        var users = JSON.parse(localStorage.getItem('users'));
+        function userExists(first, password) {
+            let index=0;
+            for(let i of users){
+                if(((i.username==first) || (i.email==first)) && (i.password==password))
+                    return index;
+                else 
+                    index++;
+            }
+            return -1;
+        }
+        function userIndex(user)
+        {
+            let index=0;
+            for(let i of users){
+                if(i===user)
+                    break;
+                else  
+                    index++;
+            }
+            return index;
+        }
+        document.getElementById("signin-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var email = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var role = document.getElementById("role").value;
+            var val=userExists(email, password);
+            if (val!=-1) {
+                localStorage.setItem('currentUserIndex', val);
                 if (role === "admin") {
                     window.location.href = "admin-page.html";
                 } else if (role === "student") {
-                    window.location.href = "student-Page.html";
-                } else {
-                    alert("Please try again.");
+                    window.location.href = "student-page.html";
                 }
-            });
-        </script>
-    </dev>
-    <dev>
-        <form id="signup-form">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" placeholder="Name" required><br><br>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Password" required><br><br>
-            <label for="phoneNumber">Phone number</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Phone number"><br><br>
-            <label for="userEmail">Email</label>
-            <input type="email" id="userEmail" placeholder="Email address" name="userEmail" required><br><br>
-            <input type="submit" value="Sign up">
-            <select id="role" name="role" required>
-                <option value="admin">Admin</option>
-                <option value="student">Student</option>
-            </select><br><br>
-        </form>
-        <script>
-            document.getElementById("signup-form").addEventListener("submit", function (event) {
-                event.preventDefault();
-                var role = document.getElementById("role").value;
-                if (role === "admin") {
-                    window.location.href = "admin-page.html";
-                } else if (role === "student") {
-                    window.location.href = "student-Page.html";
-                } else {
-                    alert("Please try again.");
-                }
-            });
-        </script>
-    </dev>
+            } else {
+                alert("Invalid username or password.");
+            }
+        });
 
+        document.getElementById("signup-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var role = document.getElementById("signup-role").value;
+        newUser= {
+                username: document.getElementById("signup-username").value,
+                password: document.getElementById("signup-password").value,
+                email: document.getElementById("userEmail").value,
+                phoneNumber: document.getElementById("phoneNumber").value,
+                role:role
+            };
+            users.push(newUser);
+            localStorage.setItem('currentUserIndex', userIndex(newUser));
+            localStorage.setItem('users', JSON.stringify(users));
+    // Redirect to the appropriate page
+    if (role === "admin") {
+        window.location.href = "admin-page.html";
+    } else if (role === "student") {
+        window.location.href = "student-page.html";
+    }
+});
+    </script>
 </body>
 
 </html>

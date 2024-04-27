@@ -4,243 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/master.css">
+    <link rel="stylesheet" href="Css/nav.css">
+    <link rel="stylesheet" href="Css/bookInfo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+    
 </head>
-
-<body>
-    <section>
-        <nav>
-            <div class="logoimg">
-                <img src="Images/project_web.jpg" width="100" height="100">
-            </div>
-            <ul>
-                <li><a href="student-page.html">Home</a></li>
-                <li><a href="Books.html">Books</a></li>
-                <li><a href="borrow list.html">Borrow list</a></li>
-            </ul>
-            <form action="Books.html" method="GET">
-                <label for="choose">Search by:</label>
-                <select id="choose" name="choose">
-                    <option value="title" class="title">Title</option>
-                    <option value="author" class="author">Author</option>
-                    <option value="category" class="category">Category</option>
-                </select>
-                <input type="text" id="search" name="query" placeholder="Write Title,Author or category">
-                <button type="submit">Search</button>
-        </nav>
-    </section>
-    <div class="book">
-        <h1>Most Popular</h1>
-        <div class="outerfram">
-            <div class="innerfram">
-                <div id="book1">
-                    <div class="image">
-                        <img src="Images/img1.jpg" height="200">
-                    </div>
-                    <div class="book_info">
-                        <h2>Remarkable Books: The World’s Most Beautiful and Historic Works</h2>
-                        <p class="year">2017</p>
-                        <p class="author">Dorling Kindersley</p>
-                        <p class="category">Historical</p>
-                        <p class="price"><b>20$</b></p>
-                        <br>
-                        <label for="Not">
-                            <p><del><strong>Available</strong></del></p>
-                        </label>
-                        <button disabled id="Not">Borrow</button>
-                        <button disabled>Buy</button>
-                    </div>
-
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book2">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img2.jpg" height="200">
-                    </div>
-                    <div class="book_info">
-                        <h2>Math adventures with python</h2>
-                        <p class="year">2019</p>
-                        <p class="author">Peter Farrell</p>
-                        <p class="category">Mathematics - Computational</p>
-                        <p class="price"><b>28.9$</b></p>
-                        <br>
-                        <button onclick>Borrow</button>
-                        <button onclick>Buy</button>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book3">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img3.jpg" height="250">
-                    </div>
-                    <div class="book_info">
-                        <h2>The Adventures of Tintin, Reporter for "Le Petit Vingtième," in the Land of the Soviets</h2>
-                        <p class="year">2003</p>
-                        <p class="author">Hergé</p>
-                        <p class="category">Adventures</p>
-                        <p class="price"><b>36.9</b></p>
-                        <br>
-                        <button onclick>Borrow</button>
-                        <button onclick>Buy</button>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book4">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img4.jpg" height="250">
-                    </div>
-                    <div class="book_info">
-                        <h2>Things Have Gotten Worse Since We Last Spoke</h2>
-                        <p class="year">2021</p>
-                        <p class="author">Eric LaRocca</p>
-                        <p class="category">Fiction - Horror</p>
-                        <p class="price"><b>19.8$</b></p>
-                        <br>
-                        <button onclick>Borrow</button>
-                        <button onclick>Buy</button>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book5">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img5.jpg" height="200">
-                    </div>
-                    <div class="book_info">
-                        <h2>Killing Hope - US Military and CIA Interventions Since World War II</h2>
-                        <p class="year">2003</p>
-                        <p class="author">William Blum</p>
-                        <p class="category">Society, Politics & Philosophy - Warfare & Defence</p>
-                        <p class="price"><b>48$</b></p>
-                        <br>
-                        <button onclick>Borrow</button>
-                        <button onclick>Buy</button>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book6">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img6.jpg" height="250">
-                    </div>
-                    <div class="book_info">
-                        <h2>A Historical Introduction to the Philosophy of Science</h2>
-                        <p class="year">2001</p>
-                        <p class="author">John Losee</p>
-                        <p class="category">Society, Politics & Philosophy</p>
-                        <p class="price"><b>19.6$</b></p>
-                        <br>
-                        <label for="Not">
-                            <p><del><strong>Available</strong></del></p>
-                        </label>
-                        <button disabled id="Not">Borrow</button>
-                        <button disabled>Buy</button>
-                        <br>
-                    </div>
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book7">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img7.jpg" height="250">
-                    </div>
-                    <div class="book_info">
-                        <h2>Alice in Wonderland</h2>
-                        <p class="year">2019</p>
-                        <p class="author">Carroll Lewis</p>
-                        <p class="category">Society, Politics & Philosophy -</p>
-                        <p class="price"><b>40$</b></p>
-                        <br>
-                        <label for="Not">
-                            <p><del><strong>Available</strong></del></p>
-                        </label>
-                        <button disabled id="Not">Borrow</button>
-                        <button disabled>Buy</button>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book8">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img8.jpg" height="250">
-                    </div>
-                    <div class="book_info">
-                        <h2>Flipped</h2>
-                        <p class="year">2011</p>
-                        <p class="author">Wendelin Van Draanen</p>
-                        <p class="category">Fiction</p>
-                        <p class="price"><b>25$</b></p>
-                        <br>
-                        <button onclick>Borrow</button>
-                        <button onclick>Buy</button>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book9">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img9.jpg" height="250">
-                    </div>
-                    <div class="book_info">
-                        <h2>Coraline Graphic Novel</h2>
-                        <p class="year">2008</p>
-                        <p class="author">Neil Gaiman</p>
-                        <p class="category">Children's Books - Science Fiction &</p>
-                        <p class="price"><b>30$</b></p>
-                        <br>
-                        <button onclick>Borrow</button>
-                        <button onclick>Buy</button>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-            <div class="innerfram">
-                <div id="book10">
-                    <div class="image">
-                        <br>
-                        <img src="Images/img10.jpg" height="250">
-                    </div>
-                    <div class="book_info">
-                        <h2>Weapon: A Visual History of Arms and Armore</h2>
-                        <p class="year">2007</p>
-                        <p class="author">Roger Ford, R.G. Grant, A. Gilbert, Philip P Parker, R. Holmes</p>
-                        <p class="category">Historical</p>
-                        <p class="price"><b>34&</b></p>
-                        <br>
-                        <button onclick>Borrow</button>
-                        <button onclick>Buy</button>
-                        <br>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
+    <body>
+        <div id="nav"></div>
+    <div id="book-info">
+        
     </div>
+    <div id ="footer">
+    </div>
+    <script src="jss/navStudent.js"></script>
+    <script>
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+      // Get book details from URL parameters
+        const title = getUrlParameter("title");
+        const description = getUrlParameter("description");
+     // const image = getUrlParameter("image");
+        const price = getUrlParameter("price");
+        const year  = getUrlParameter("year");
+        const author=getUrlParameter("author");
+        const category=getUrlParameter("category");
+        const ID=getUrlParameter("ID");
+      // Display book details
+        const bookInfoDiv = document.getElementById("book-info");
+        const info_top=document.createElement("div");
+        info_top.classList.add("info_top");
+        const h2 = document.createElement("h2");
+        h2.textContent = decodeURIComponent(title);
+        info_top.appendChild(h2);
+        let rs = localStorage.getItem("books");
+        let MB = new Map(JSON.parse(rs));
+        let img;
+        MB.forEach((books, c)=>
+        {  
+                books.forEach(book=>
+                    {
+                        if(ID==book.ID)
+                        {
+                            img=book.image;
+                        }
+                    })
+        })
+        let imgDiv=document.createElement("div")
+        imgDiv.innerHTML=`
+        <img src=${img}>
+        `
+        imgDiv.id="imgdetails";
+        info_top.appendChild(imgDiv);
+        bookInfoDiv.appendChild(info_top);
+        const info_bottom=document.createElement("div");
+        info_bottom.classList.add("info_bottom");
+        bookInfoDiv.appendChild(info_bottom);
+        const pr=document.createElement("p");
+        pr.textContent="Price:  "+ decodeURIComponent(price);
+        info_bottom.appendChild(pr); 
+        const aut=document.createElement("p");
+        aut.textContent="Author:   "+decodeURIComponent(author);
+        info_bottom.appendChild(aut);
+        const yer=document.createElement("p");
+        yer.textContent="Year:   "+decodeURIComponent(year);
+        const categ=document.createElement("p");
+        categ.textContent="Cateogry:   "+decodeURIComponent(category);
+        info_bottom.appendChild(categ);
+        info_bottom.appendChild(yer);
+        const pre = document.createElement("pre");
+        const descTitle = document.createElement("span");
+        descTitle.textContent = "Description: ";
+        pre.appendChild(descTitle);
+        const p = document.createElement("h4");
+        p.textContent = decodeURIComponent(description);
+        pre.appendChild(p);
+        info_bottom.appendChild(pre);
+    </script>
+    <script src="jss/DisplayBooksStudent.js"></script>
 </body>
 
 </html>

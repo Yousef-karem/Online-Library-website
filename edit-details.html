@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Details</title>
+    <link rel="stylesheet" href="Css/nav.css">
+    <link rel="stylesheet" href="Css/AddBook.css">
+</head>
+
+<body>
+    <div id="navigation">
+
+    </div>
+    <script src="jss/nav.js"></script>
+    <form id="edit-form" class="container">
+        <h1>Edit Details</h1>
+        <br><br>
+        <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        </div>
+        <br><br>
+        <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        </div>
+        <br><br>
+        <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        </div>
+        <br><br>
+        <div class="form-group">
+        <label for="phoneNumber">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber"><br><br>
+        </div>
+        <br><br>
+        <div class="form-group">
+        <button type="submit" style="    padding: 12px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;">Save Changes</button>
+        </div>
+    </form>
+    <div id ="footer">
+    </div>
+    <script>
+        var users = JSON.parse(localStorage.getItem('users'));
+        var currentUserIndex = localStorage.getItem('currentUserIndex');
+        window.onload = function() {
+            // Retrieve user information from local storage
+            document.getElementById('username').value=users[currentUserIndex].username,
+            document.getElementById('password').value=users[currentUserIndex].password,
+            document.getElementById('email').value = currentUser=users[currentUserIndex].email,
+            document.getElementById('phoneNumber').value=users[currentUserIndex].phoneNumber;
+        };
+
+        document.getElementById("edit-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var newUsername = document.getElementById("username").value;
+            var newPassword = document.getElementById("password").value;
+            var newEmail = document.getElementById("email").value;
+            var newPhoneNumber = document.getElementById("phoneNumber").value;
+
+            // Update user information in local storage
+            var users = JSON.parse(localStorage.getItem('users'));
+
+            users[currentUserIndex] = {
+                username: newUsername,
+                password: newPassword,
+                email: newEmail,
+                phoneNumber: newPhoneNumber
+            };
+            localStorage.setItem('users', JSON.stringify(users));
+
+            // Redirect back to the admin page
+            window.location.href = "admin-page.html";
+        });
+    </script>
+    <div id ="footer">
+    </div>
+</body>
+
+</html>

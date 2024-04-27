@@ -1,37 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <title>Home Admin Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="Css/home.css">
+    <link rel="stylesheet" href="Css/nav.css">
 </head>
-
 <body>
     <!-- Navbar -->
-    <nav>
-        <ul>
-            <li><a href="admin-page.html">Home</a></li>
-            <li><a href="All-books.html">All Books</a></li>
-            <li><a href="add-book.html">Add Book</a></li>
-            <label for="choose">Search by:</label>
-            <select id="choose" name="choose">
-                <option values="ID">ID</option>
-                <option value="title">Title</option>
-                <option value="author">Author</option>
-                <option value="category">Category</option>
-            </select>
-            <input type="text" id="search" name="query" placeholder="Write ID,Title,Author or category">
-            <button type="submit">Search</button>
-        </ul>
-    </nav>
-    <hr>
-    <dev>
-        <h1>Welcome to the Home Page</h1>
-        <h2>Admin</h2>
-        <label for="username">Username:</label>
-        <input type="text" value="Admin" readonly><br><br>
-        <label for="userEmail">Email</label>
-        <input type="email" value="Admin@gmail.com" readonly><br><br>
-        <input type="button" value="Edit Details"><br><br>
-    </dev>
+    <div id="navigation"></div>
+    <div class="lifestyles row">
+    <div class="lifestyles-interstitial" id="map-interstitial">
+    <div class="l-container">
+        <div class="lifestyles-interstitial__content">
+            <h1 class="lifestyles-interstitial__slogan">
+                Explore &amp; read millions of books online for free
+            </h1>
+            
+
+            <a href="All-books.html" class="btn btn--solid btn--primary" >Browse our collection</a>
+        </div>
+        <div class="content-zone">    
+            <ul class="org-collections" style="display: block;">
+    
+<li class="insider" style="z-index: 205;">      
+    <a href="All-books.html"  >
+        <img  id="im"src="Images/b1.jpg"  style="max-width: 205px;">
+    </a>        
+</li>
+
+<li class="insider" style="z-index: 221;">      
+    <a href="All-books.html"  >
+        <img  src="Images/b2.jpg" style="max-width: 221px;">
+    </a> 
+</li>
+
+<li class="insider" style="z-index: 205;">     
+    <a href="All-books.html" >
+        <img  src="Images/b3.jpg"  style="max-width: 205px;">
+    </a>        
+</li>
+</ul>
+</div>
+    </div>
+</div>
+    <div class="container">
+        <div id="slideshow">
+            <img src="Images/home1.jpg"  alt="Home Image">
+            <div class="overlay">
+                <h2>Welcome to Our Library</h2>
+                <p>Access thousands of books</p>
+                <button onclick="window.location.href='all-books.html'">Explore Books</button>
+            </div>
+        </div>
+        </div>
+        <div class="navigation">
+            <button class="arrow-btn prev" onclick="prevImage()">&larr;</button>
+            <button class="arrow-btn next" onclick="nextImage()">&rarr;</button>
+        </div>
+    </div>
+
+    <div id ="footer">
+    </div>
+    <script src="jss/nav.js"></script>
+    <script>
+        var currentIndex = 0;
+        var images = ["Images/home1.jpg", "Images/home3.jpg", "Images/home4.jpg"];
+        var texts = ["Welcome to our library", "Access thousands of books", "Borrow or buy books"];
+
+        function displayImage() {
+            var slideshow = document.getElementById("slideshow");
+            slideshow.innerHTML = `
+                <img src="${images[currentIndex]}" alt="Home Image">
+                <div class="overlay">
+                    <h2 style="color:white;">${texts[currentIndex]}</h2>
+                    <p>Explore our collection now!</p>
+                    <button onclick="window.location.href='all-books.html'">Explore Books</button>
+                </div>
+            `;
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            displayImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            displayImage();
+        }
+
+        window.onload = function () {
+            displayImage();
+        };
+    </script>
 </body>
+</html>
