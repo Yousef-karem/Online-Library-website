@@ -4,20 +4,16 @@ section {
 }
 
 section nav {
+    top:0;
+    left:0;
     width: 100%;
     height: 14%;
     align-items: center;
     position: fixed;
     display: flex;
     box-shadow: 0 0 20px #a16608;
-    background: rgb(255, 255, 255);
-}
-
-#home img {
-    margin-left: 200px;
-    width: 500px;
-    top: 0;
-    right: 0;
+    background: #a16608;
+    z-index: 1000;
 }
 
 #home {
@@ -28,13 +24,6 @@ section nav {
     left: 15 px;
     top: 50px;
 }
-
-/*#home #dv {
-    align-items: center;
-    position: fixed;
-    display: flex;
-}
-*/
 #home img {
     position: absolute;
     top: 175px;
@@ -80,6 +69,8 @@ section nav {
     left: 15 px;
     top: 43px;
     background: #a16608;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 
@@ -89,33 +80,61 @@ section nav {
     left: 15px;
 }
 
+.addbutton {
+    border-radius: 8px; 
+    background: #a16608;
+}
 section nav ul {
-    margin-left: 750px;
+    width: 710px;
+    padding-left: 90px;
 }
 
 section nav li {
     display: inline-block;
-    padding: 5px;
+    margin-left: 20px;
+    font-size: 25px;
+    /*background-color: #f0f0f0;*/
+    /*border: 8px solid #f0f0f0;*/
+    /*border-radius:40%;*/
+    text-align: center;
+    padding: 8px;
+    color: black;
+
+
 }
 
 section nav li a {
+    font-weight: bold;
+    font-family: Arial;
     text-decoration: none;
-    color: black;
+    color:#f0f0f0;
+
 }
 
 section nav li a:hover {
+    color: #563501;
+}
+
+section nav form label.icons{
+    position: absolute;
+    right: 125px;
+    top: 43%;
+}
+/*section nav form label.icons:hover{
     color: #a16608;
+}*/
+section nav form #heart{
+    color:#e3cfad;
 }
-
-
+section nav form #heart:hover{
+    color:#563501;
+}
 section nav form {
-    margin-left: 20px;
+    margin-left: 10px;
 }
-
 section nav form button:hover {
-    background: #a16608;
+    background:#563501;
 }
-
 #search:hover {
     box-shadow: 0 0 3px #a16608;
 }
@@ -123,11 +142,11 @@ section nav form button:hover {
 #search ::placeholder:hover {
     color: #a16608;
 }
-
-section nav form select:hover {
-    color: #a16608;
+section nav form select option/*:hover*/ {
+    /*color: #a16608;*/
     border: 1px solid #a16608;
     box-shadow: 0 0 3px #a16608;
+    background-color:#a16608;
 }
 
 .book {
@@ -145,21 +164,56 @@ section nav form select:hover {
 
 .book .outerfram {
     width: 100%;
-    height: 50vh;
+    height: 90vh;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     margin: 5px;
-    overflow-y: auto;
+    overflow: auto;
 }
+.book .outerfram .innerfram .top .imgbook img{
+    height: 250px;
+    width: 235px;
+    border-radius: 8px 8px 0 0;
+}
+    #favbook{
+        background: rgba(255,255,255,0.36);
+        top: 15px;
+        right: 15px;
+        color: rgba(255,0,0,0.4);
+        border-color: rgba(255,255,255,0.36);
+        border-radius: 40%;
+        font-size: 20px;
+        z-index: 55;
+    }
+    #favbook:hover{
+        color: red;
+        border-color: rgba(0,0,0,0);
+        background-color: transparent;
+    }
 
+    .innerfram.topDiv{
+        position: relative;
+    }
 
 .book .outerfram .innerfram {
-    width: 300px;
-    height: 600px;
+    width: 350px;
+    height: 500px;
     text-align: center;
     border: 1px solid #000;
-    padding: 10px;
+    border-radius: 8px 8px 8px 8px ;
+padding: 3px 10px 10px 10px;
     margin: auto 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    background:#e9d4b7;
+    position: relative;
+
+}
+.favbutton {
+    text-align:right;
+    border-radius: 8px ;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
 
 }
 
@@ -177,5 +231,336 @@ section nav form select:hover {
 
 .book .outerfram .innerfram button {
     background: #a16608;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 35px;
 
+
+}
+::-webkit-scrollbar{
+    width: 5px;
+    height: 5px;
+}
+::-webkit-scrollbar-thumb{
+    background: #a16608;
+    border-radius: 8px; 
+}
+
+.book .outerfram .innerfram:hover ~.innerfram {
+    opacity: 0.5; 
+}
+.book .outerfram .innerfram:hover{
+    opacity: 1;
+    box-shadow: 0 0 10px #a16608;
+
+}
+.bd::after {
+    position: relative;
+}
+#addBook {
+    position: absolute;
+    margin-top:3% ;
+    margin-left:30% ;
+    background-color:rgba(63, 46, 3, 0.5);
+    z-index: 1;
+    width: 600px;
+    height: 670px;
+    border-radius:30px;
+}
+
+
+#addBook h1 {
+    color: #563501;
+    margin-top: 50px;
+    text-align: center;
+
+}
+#addBook input{
+    border-style: solid;
+    border-color: #f0f0f0;
+    background-color: rgb(0,0,0,0);
+    border-width: 0 0 2px 0;
+    color:#f0f0f0;
+    height: 40px;
+}
+#addBook input::placeholder{
+    color: #f0f0f0;
+    font-size: large;
+}
+#addBook #buttom .line
+{
+    display: flex;
+    column-gap: 35px;
+    margin-left: 15%;
+}
+#addBook textarea{
+    border-style: solid;
+    border-color: #f0f0f0;
+    background-color: rgb(0,0,0,0);
+    border-width: 0 0 2px 0;
+    width: 75%;
+    height: 30%;
+    max-height: 150px;
+    overflow: scroll;
+    color:#f0f0f0;
+}
+#addBook label
+{
+    color:#f0f0f0;
+}
+#addBook textarea::placeholder{
+    color: #f0f0f0;
+    font-size: large;
+}
+#addBook .addbutton{
+    color: #f0f0f0;
+    background-color: rgba(0,0,0,0);
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    width: 120px;
+    height: 30px;
+}
+.borrow_list .outerfram {
+    width: 100%;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 5px;
+    overflow: auto;
+}
+.borrow_list .outerfram .innerfram {
+    width: 300px;
+    height: 415px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 8px 8px 8px 8px ;
+    padding: 10px;
+    margin: auto 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    background:#e9d4b7;
+}
+.borrow_list img {
+    height: 150px;
+    width: 200px;
+    border-radius: 8px 8px 0 0;
+}
+
+.borrow_list h2 {
+    margin-bottom: 10px;
+    color: #a16608;
+}
+
+.borrow_list .author {
+    color: #a16608;
+}
+
+.borrow_list .category {
+    color: #563501;
+}
+.Favorite .outerfram {
+    width: 100%;
+    height: 70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 5px;
+    overflow: auto;
+}
+.Favorite .outerfram .innerfram {
+    width: 300px;
+    height: 415px;
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 8px 8px 8px 8px ;
+    padding: 10px;
+    margin: auto 20px;
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+    background:#e9d4b7;
+}
+.Favorite img {
+    height: 150px;
+    width: 200px;
+    border-radius: 8px 8px 0 0;
+}
+
+.Favorite h2 {
+    margin-bottom: 10px;
+    color: #a16608;
+}
+
+.Favorite .author {
+    color: #a16608;
+}
+
+.Favorite .category {
+    color: #563501;
+}
+#remove{
+    background-color: #563501;
+    color: #e9d4b7;
+}
+
+
+footer{
+    box-shadow: 0 0 20px #a16608;
+    background: #a16608;
+    color: #fff;
+    padding: 15px 20px;
+    position: relative;
+    bottom: -8px;
+    display: flex;
+    left: -8px;
+    height: 130px;
+    width: 98.4%;
+}
+.copyr{
+    position: absolute;
+    right: 5px;
+    bottom: 0;
+}
+
+#location , #phlog ,.Aus{
+    display: block;
+    left: 50px;
+    color: black;
+    font-size:18px;
+    padding-left: 30px;
+    padding-bottom: 8px;
+    padding-top: 5px;
+    padding-right: 70px;
+}
+.fotlogo{
+    color: black;
+    font-size: 80px;
+    padding-right: 50px;
+    padding-left: 40px;
+    padding-top: 20px;
+}
+.ourlocation , .ournums , .aboutus{
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    color: rgba(0, 0, 0, 0.38);
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.bottom{
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    column-gap: 2px;
+    display: flex;
+}
+.bottom button{
+    background: #a16608;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 37px;
+    min-width: 103px;
+    font-size: 15px;
+}
+#editForm
+{
+    text-align: center;
+}
+#editForm input{
+    border-style: solid;
+    background-color: rgb(0,0,0,0);
+    border-width: 0 0 2px 0;
+    height: 40px;
+}
+#editForm input::placeholder{
+    font-size: large;
+}
+#Des
+{
+    text-align: center;
+}
+#editForm textarea {
+    border-style: solid;
+    border-color: #000;
+    background-color: rgb(250, 250, 250);
+    border-width: 2px 2px 2px 2px;
+    width: 100%;
+    height: 280px;
+    max-height: 100px;
+    max-width: 280px;
+    overflow: scroll;
+    color: #000;
+}
+#editForm textarea::placeholder{
+    color: #f0f0f0;
+    font-size: large;
+}
+#userIcon
+{
+    height: 50px;
+    width: 50px;
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(332deg) brightness(107%) contrast(100%);
+    text-align: center;
+    margin-left: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+#user-info
+{
+    color:white;
+    
+}
+/**/
+#home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    width: auto;
+    height: auto; /* Set the height as needed */
+    text-align: center;;
+}
+
+#home-container img {
+    width: 1000px;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 30%;
+    left: 35%;
+    font-size: large;
+    font-style: italic;
+    font-display:  block;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+#go
+{
+background: #f07c29 none repeat scroll 0 0;
+border: 2px solid #d6681b;
+border-radius: 4px;
+color: #fff;
+display: inline-block;
+font-size: 24px;
+font-weight: 400;
+line-height: 34px;
+margin-top: 43px;
+padding: 10px 38px;
+text-transform: none;
+font-family: rufina, serif;
+font-weight: 400;
+text-decoration: none;
+box-shadow: 2px 2px ;
+}
+.arrow-btn {
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: #333;
+    padding: 10px;
+    cursor: pointer;
 }

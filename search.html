@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libarary</title>
+    <link rel="stylesheet" href="Css/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+
+    </head>
+<body>
+    <div id ="nav">
+    </div>
+    <section>
+        <nav>
+            <div class="logoimg">
+                <img src="Images/bknav1.jpg" width="250" height="110">
+            </div>
+            <ul>
+                <li><a href="student-page.html">Home</a></li>
+                <li><a href="Books.html">Books</a></li>
+                <li><a href="borrow list.html">Borrow list</a></li>
+                <li ><a href="">Favorite &hearts;</a></li>
+            </ul>
+            <form action="search.html" method="GET">
+                <label for="choose">Search by:</label>
+                <select id="choose" name="choose">
+                    <option value="title" class="title">Title</option>
+                    <option value="author" class="author">Author</option>
+                    <option value="category" class="category">Category</option>
+                </select>
+                <input type="search" id="search" name="query" placeholder="Search" >
+                <label for="search" class="icons" ><i class="fa-solid fa-magnifying-glass"></i></label>
+        </nav>
+        <div id ="footer">
+        </div>
+    </section>
+    <h1>Search Results</h1>
+    <div id="searchResults">
+    </div> 
+
+    <script src="jss/main.js"></script>
+    </body>

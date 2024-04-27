@@ -1,41 +1,56 @@
 <!DOCTYPE html>
-<html lang="eg">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Add book</title>
+    <title>Add Book</title>
+    <link rel="stylesheet" href="css/AddBook.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
 <body>
-    <!-- Navbar -->
-    <nav>
-        <ul>
-            <li><a href="admin-page.html">Home</a></li>
-            <li><a href="All-books.html">All Books</a></li>
-            <li><a href="add-book.html">Add Book</a></li>
-            <label for="choose">Search by:</label>
-            <select id="choose" name="choose">
-                <option values="ID">ID</option>
-                <option value="title">Title</option>
-                <option value="author">Author</option>
-                <option value="category">Category</option>
-            </select>
-            <input type="text" id="search" name="query" placeholder="Write ID,Title,Author or category">
-            <button type="submit">Search</button>
-        </ul>
-    </nav>
-    <hr>
-    <h1>Add book</h1>
-    <form action="" name="Add book">
-        <label for="bookID">ID</label>
-        <input type="number" id="bookID" name="bookID" placeholder="ID"><br><br>
-        <label for="bookName">Book name</label>
-        <input type="text" id="bookName" name="bookName" placeholder="Name"><br><br>
-        <label for="Author">Author</label>
-        <input type="text" id="Author" name="Author" placeholder="Author"><br><br>
-        <label for="Category">Category</label>
-        <input type="number" id="Category" name="Category" placeholder="Category"><br><br>
-        <textarea id="descrition" name="description" placeholder="Description"></textarea><br><br>
-        <input type="submit" value="Add Book"><br><br>
-    </form>
+    <!-- Navbar (You need to define this in nav.js) -->
+    <div id="navigation"></div>
+    <script src="jss/nav.js"></script>
+
+    <div id="addBook" class="container">
+        <h1>Add New Book</h1>
+        <br><br>
+            <div class="form-group">
+                <input type="text" id="bookTitle" name="bookTitle" placeholder="Title" required>
+                <input type="number" id="bookID" name="bookID" placeholder="ID" oninput="checkUniqueId()" required>
+                <label for="bookID" id="idWarning"></label>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="number" id="bookYear" name="bookYear" placeholder="Year" required>
+                <input type="text" id="Author" name="Author" placeholder="Author" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="text" id="Category" name="Category" placeholder="Category" required>
+                <input type="number" id="price" name="price" placeholder="Price" required>
+            </div>
+            <br>
+            <div class="form-group">
+                <textarea id="description" name="description" placeholder="Description"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="file" id="imageUpload" accept="image/*">
+            </div>
+            <br>
+            <div class="form-group">
+                <input type="checkbox" id="isAvailable" name="isAvailable" required>
+                <label for="isAvailable">Is Available</label>
+                <input type="button" value="Add Book" class="add-button" onclick="addBook()">
+            </div>
+            <br>
+        
+    </div>
+    <div id ="footer">
+    </div>
+    <script src="jss/addBook.js"></script>
 </body>
+</html>
