@@ -1,0 +1,76 @@
+{% extends 'baseStudent.html' %}
+{% load static %}
+{% block title %}Edit User{% endblock %}
+
+{% block content %}
+<div id="alert" class="alert alert-danger" role="alert" style="display: none;">
+    <span>Passwords do not match!</span>
+    <button type="button" class="close" aria-label="Close" id="closeAlert">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<link rel="stylesheet" href="{% static 'LibraryAdmin/css/EditUser.css' %}">
+
+
+    <h2>Edit User</h2>
+    <form method="post" id="edit_user_form" class="container">
+        {% csrf_token %}
+        <div class="form-group">
+            <div>
+                <label for="{{ form.username.id_for_label }}" class="form-label">Username:</label>
+                {{ form.username }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="{{ form.email.id_for_label }}" class="form-label">Email:</label>
+                {{ form.email }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="{{ form.phoneNumber.id_for_label }}" class="form-label">Phone Number:</label>
+                {{ form.phoneNumber }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="{{ form.password.id_for_label }}" class="form-label">Password:</label>
+                {{ form.password }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div>
+                <label for="{{ form.confirm_password.id_for_label }}" class="form-label">Confirm Password:</label>
+                {{ form.confirm_password }}
+            </div>
+        </div>
+        <div class="button-group">
+            <button type="submit" id="save_changes">Save Changes</button>
+            <a href="{% url 'BooksStudent' %}" class="cancel-button">Cancel</a>
+        </div>
+    </form>
+
+<script>
+    const alertBox = document.getElementById('alert');
+    const closeAlertBtn = document.getElementById('closeAlert');
+    const password1 = document.getElementById('{{ form.password.id_for_label }}');
+    const password2 = document.getElementById('{{ form.confirm_password.id_for_label }}');
+    
+    closeAlertBtn.addEventListener('click', function () {
+        alertBox.style.display = 'none';
+    });
+    
+    function checkPasswords() {
+        if ( password1.value !== password2.value) {
+            alertBox.style.display = 'block';
+        } else {
+            alertBox.style.display = 'none';
+        }
+    }
+
+    password1.addEventListener('input', checkPasswords);
+    password2.addEventListener('input', checkPasswords);
+</script>
+{% endblock %}

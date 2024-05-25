@@ -1,0 +1,213 @@
+/* Reset default margin and padding */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the navigation bar container */
+nav {
+    display: flex;
+    flex-direction: column;
+    height: 25vh;
+    font-family: Arial, sans-serif;
+}
+
+/* Style the top (white background) section */
+.top-section {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Style the logo */
+.logoimg img {
+    width: 200px;
+    height: 100px;
+}
+
+/* Style the user buttons */
+#user-info {
+    display: flex;
+    align-items: center;
+}
+
+button.user-btn, button.logout-btn {
+    background-color: #3498db;;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.user-btn:hover, button.logout-btn:hover {
+    background-color: #555;
+}
+
+/* Style the bottom (black background) section */
+.bottom-section {
+    background-color: #1E1E1E;
+    padding: 20px;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Align items with space between */
+    align-items: center; /* Center items vertically */
+}
+
+/* Style the navigation links */
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox for links */
+}
+
+li {
+    margin-right: 20px;
+}
+
+li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+li a:hover {
+    background-color: #333;
+}
+
+/* Style the search form */
+form {
+    display: flex;
+    align-items: center;
+}
+
+select, input[type="search"], button[type="submit"] {
+    padding: 8px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333; /* Dark gray color */
+    margin-bottom: 10px;
+    border-bottom: 2px solid #3498db; /* Blue border bottom */
+    padding-bottom: 5px;
+}
+
+.book {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.outerfram {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.innerfram {
+    width: 30%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.book_info {
+    margin-top: 10px;
+    color: #555555; /* Dark gray text color */
+}
+
+.bottom {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #bdc3c7; /* Grey out disabled buttons */
+    cursor: not-allowed;
+}
+
+footer{
+    box-shadow: 0 0 20px #1E1E1E;
+    background: #1E1E1E;
+    color: #fff;
+    padding: 15px 20px;
+    position: relative;
+    bottom: -8px;
+    display: flex;
+    left: -8px;
+    height: 130px;
+    width: 98.4%;
+}
+.copyr{
+    position: absolute;
+    color: white;
+    right: 5px;
+    bottom: 0;
+}
+
+#location , #phlog ,.Aus{
+    display: block;
+    left: 50px;
+    color: white;
+    font-size:18px;
+    padding-left: 30px;
+    padding-bottom: 8px;
+    padding-top: 5px;
+    padding-right: 70px;
+}
+.fotlogo{
+    color: white;
+    font-size: 80px;
+    padding-right: 50px;
+    padding-left: 40px;
+    padding-top: 20px;
+}
+.ourlocation , .ournums , .aboutus{
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    color: rgba(0, 0, 0, 0.38);
+    font-weight: bold;
+    padding-bottom: 5px;
+}
