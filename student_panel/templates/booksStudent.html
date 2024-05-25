@@ -1,0 +1,185 @@
+{% extends 'baseStudent.html' %}
+{% load static %}
+{% block title %}Books{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'student/css/Books.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<div id="bookCatalog">
+    {%if recently_added_books%}
+    <div class='book'>
+        <h2>Recently Added Books</h2>
+        <div class='outerfram'>
+            {% for book in recently_added_books %}
+            <div class='innerfram'>
+                <div class="top">
+                    <button class="favButton{% if book.id in favorite %} favorited{% endif %}" data-book-id="{{ book.id }}">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                    
+                    {% if book.image %}
+                    <div class="imgbook"><img src="{{ book.image.url }}" alt="{{ book.title }}"></div>
+                    {% endif %}
+                    <div class="book_info">
+                        <h2>{{ book.title }}</h2>
+                        <p>Author: {{ book.author }}</p>
+                        <p>Year: {{ book.year }}</p>
+                        <p>Price: ${{ book.price }}</p>
+                        <p>Availability:<span class="{% if book.available %}availability{% else %}unavailable{% endif %}">
+                            {% if book.available %} Available {% else %} Unavailable {% endif %} </p>
+                    </div>
+                </div>
+                <div class="bottom">
+                    <button  {% if book.id in borrow or not book.available%}disabled{% endif %} class="borrowButton" data-book-id="{{ book.id }}">
+                        <i class="fas fa-book"></i> Borrow
+                    </button>
+                    <button>
+                        <a href="{% url 'BooksDetails' book.id %}" class="detailsButton"><i class="fas fa-info-circle"></i> More details</a>
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{%endif%}
+
+<!-- Display books grouped by category -->
+{% for category, books in books_by_category.items %}
+<div class="book">
+    <h2>{{ category }}</h2>
+    <div class='outerfram'>
+        {% for book in books %}
+        <div class='innerfram'>
+            <div class="top">
+                <button class="favButton{% if book.id in favorite %} favorited{% endif %}" data-book-id="{{ book.id }}">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
+
+                {% if book.image %}
+                <div class="imgbook"><img src="{{ book.image.url }}" alt="{{ book.title }}"></div>
+                {% endif %}
+                <div class="book_info">
+                    <h2>{{ book.title }}</h2>
+                    <p>Author: {{ book.author }}</p>
+                    <p>Year: {{ book.year }}</p>
+                    <p>Price: ${{ book.price }}</p>
+                    <p>Availability:<span class="{% if book.available %}availability{% else %}unavailable{% endif %}">
+                        {% if book.available %} Available {% else %} Unavailable {% endif %} </p>
+                </div>
+            </div>
+            <div class="bottom">
+                <button {% if book.id in borrow or not book.available%}disabled{% endif %} class="borrowButton" data-book-id="{{ book.id }}">
+                    <i class="fas fa-book"></i> Borrow
+                </button>
+            <button>
+                <a href="{% url 'BooksDetails' book.id %}" class="detailsButton"><i class="fas fa-info-circle"></i> More details</a>
+            </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endfor %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.favButton').forEach(button => {
+        button.addEventListener('click', function() {
+            if (isUserAuthenticated) {
+                let bookId = this.dataset.bookId;
+                let url = "{% url 'favoriteBook' 0 %}".replace('0', bookId);
+
+                // Define action based on the presence of 'favorited' class
+                let action = this.classList.contains('favorited') ? 'unfavorite' : 'favorite';
+
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify({ action: action })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        if (data.action === 'favorited') {
+                            alert('Book added to favorites!');
+                            button.classList.add('favorited');
+                        } else if (data.action === 'unfavorited') {
+                            alert('Book removed from favorites!');
+                            button.classList.remove('favorited');
+                        }
+                    } else {
+                        alert('Failed to update favorites: ' + data.message);
+                    }
+                });
+            } 
+            else {
+                alert('Please log in to Add favorite books.');
+            }
+            location.reload();
+        });
+    });
+
+
+        document.querySelectorAll('.borrowButton').forEach(button => {
+            button.addEventListener('click', function() {
+                if (isUserAuthenticated) {
+                    if (!this.classList.contains('disabled')) {
+                        let bookId = this.dataset.bookId;
+                        let url = "{% url 'borrowBook' 0 %}".replace('0', bookId);
+
+                        fetch(url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'X-CSRFToken': getCookie('csrftoken')
+                            },
+                            body: JSON.stringify({ action: 'borrow' })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.success) {
+                                alert('Book borrowed successfully!');
+                                this.disabled = true;
+                            } else {
+                                alert('Failed to borrow book: ' + data.message);
+                            }
+                        });
+                    } else {
+                        alert('You have already borrowed this book.');
+                    }
+                } else {
+                    alert('Please log in to borrow books.');
+                }
+                location.reload();
+            });
+        });
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                let cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    let cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    });
+</script>
+
+<style>
+    .favorited {
+        color: red !important;
+    }
+</style>
+
+{% endblock %}

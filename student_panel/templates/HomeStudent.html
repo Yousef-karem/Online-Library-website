@@ -1,0 +1,102 @@
+{% extends 'baseStudent.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'student/css/home.css' %}">
+<body>
+    <div class="lifestyles row">
+    <div class="lifestyles-interstitial" id="map-interstitial">
+    <div class="l-container">
+        <div class="lifestyles-interstitial__content">
+            <h1 class="lifestyles-interstitial__slogan">
+                Explore &amp; read millions of books online for free
+            </h1>
+            
+
+            <a href="{% url 'BooksStudent' %}" class="btn btn--solid btn--primary" >Browse our collection</a>
+        </div>
+        <div class="content-zone">    
+            <ul class="org-collections" style="display: block;">
+    
+<li class="insider" style="z-index: 205;">      
+    <a href="{% url 'BooksStudent' %}"  >
+        <img  id="im"src="{% static 'Images/b1.jpg'%}"  style="max-width: 205px;">
+    </a>        
+</li>
+
+<li class="insider" style="z-index: 221;">      
+    <a href="{% url 'BooksStudent' %}"  >
+        <img  src="{% static 'Images/b2.jpg'%}" style="max-width: 221px;">
+    </a> 
+</li>
+
+<li class="insider" style="z-index: 205;">     
+    <a href="{% url 'BooksStudent' %}" >
+        <img  src="{% static 'Images/b3.jpg'%}"  style="max-width: 205px;">
+    </a>        
+</li>
+</ul>
+</div>
+    </div>
+</div>
+    <div class="container">
+        <script>
+            const home_url="{% static 'Images/home.jpg' %}";
+        </script>
+        <div id="slideshow" >
+            <style>
+                #slideshow
+                {
+                    background-image: "{% static 'Images/home.jpg' %}";
+                };
+            </style>
+            <img src="{% static 'Images/home1.jpg'%}"  alt="Home Image">
+            <div class="overlay">
+                <h2>Welcome to Our Library</h2>
+                <p>Access thousands of books</p>
+                <button><a href={% url 'BooksStudent' %}>Explore Books</a></button>
+
+            </div>
+        </div>
+        </div>
+        <div id="arrows">
+            <button class="arrow-btn prev" onclick="prevImage()">&larr;</button>
+            <button class="arrow-btn next" onclick="nextImage()">&rarr;</button>
+        </div>
+    </div>
+    <script>
+        var currentIndex = 0;
+        var images = ["{% static 'Images/home1.jpg'%}", "{% static 'Images/home2.jpg'%}", "{% static 'Images/home4.jpg'%}"];
+        var texts = ["Welcome to our library", "Access thousands of books", "Borrow your favourite books"];
+
+        function displayImage() {
+            var slideshow = document.getElementById("slideshow");
+            slideshow.innerHTML = `
+                <img src="${images[currentIndex]}" alt="Home Image">
+                <div class="overlay">
+                    <h2 style="color:white;">${texts[currentIndex]}</h2>
+                    <p>Explore our collection now!</p>
+                    <button><a href={% url 'BooksStudent' %}>Explore Books</a></button>
+                </div>
+            `;
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex + 1) % images.length;
+            displayImage();
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            displayImage();
+        }
+
+        window.onload = function () {
+            displayImage();
+        };
+        
+    </script>
+</body>
+</html>
+{% endblock %}
