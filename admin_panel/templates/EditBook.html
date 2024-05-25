@@ -1,0 +1,62 @@
+{% extends 'baseAdmin.html' %}
+{% load static %}
+{% block title %}Edit Book{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'LibraryAdmin/css/AddBook.css' %}">
+<form method="post" action="{% url 'EditBook' book.id%}" enctype="multipart/form-data" id="addBook" class="container">
+    <h2>Edit Book</h2>
+    {% csrf_token %}
+    <div class="form-group">
+        <div>
+            <label for="{{ form.title.id_for_label }}" class="form-label">{{ form.title.label }}</label>
+            {{ form.title }}
+        </div>
+        <div>
+            <label for="{{ form.category.id_for_label }}" class="form-label">{{ form.category.label }}</label>
+            {{ form.category }}
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div>
+            <label for="{{ form.author.id_for_label }}" class="form-label">{{ form.author.label }}</label>
+            {{ form.author }}
+        </div>
+        <div>
+            <label for="{{ form.year.id_for_label }}" class="form-label">{{ form.year.label }}</label>
+            {{ form.year }}
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <div>
+            <label for="{{ form.price.id_for_label }}" class="form-label">{{ form.price.label }}</label>
+            {{ form.price }}
+        </div>
+        <div>
+            <label for="{{ form.CopiesNum.id_for_label }}" class="form-label">{{ form.CopiesNum.label }}</label>
+            {{ form.CopiesNum }}
+        </div>
+    
+    </div>
+    
+    <div class="form-group">
+        <label for="{{ form.description.id_for_label }}" class="form-label">{{ form.description.label }}</label>
+        {{ form.description }}
+    </div>
+    
+    <div class="form-group">
+        <div><input type="file" name="image" accept="image/*" id="id_image"> </div>
+        <div>
+            <label for="{{ form.available.id_for_label }}" class="form-label" style="width:175px;">{{ form.available.label }}</label>
+            {{ form.available }}
+        </div>
+    </div>
+
+    <div class="button-group">
+        <button type="submit" class="add-button">Save Changes</button>
+        <button class="cancel-button"><a href="{% url 'BooksAdmin' %}" >Cancel</a></button>
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.book {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.outerfram {
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    margin: 5px;
+    overflow: auto;
+scrollbar-color: #3498db #f1f1f1;
+
+scrollbar-width: thin;
+
+}
+
+.innerfram {
+    width: 30%;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ffffff;
+    box-shadow: 3px 3px 2px #3498db;
+}
+
+.top {
+    display: flex;
+    align-items: center;
+}
+
+.imgbook img {
+    max-width: auto;
+    height: 150px;
+    display: block; /* Ensures image respects container dimensions */
+    border: 2px solid #ddd; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle box shadow */
+    transition: transform 0.3s ease; /* Smooth transition on hover */
+}
+
+.innerfram img:hover {
+    transform: scale(1.1); /* Scale up image on hover for a zoom effect */
+}
+
+.book_info {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px; /* Increase top margin */
+}
+.availability {
+    font-weight: bold;
+    color: #2ecc71; /* Green color for 'Available' */
+}
+
+.unavailable {
+    font-weight: bold;
+    color: #e74c3c; /* Red color for 'Unavailable' */
+}
+
+button {
+    padding: 8px 16px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+button:disabled {
+    background-color: #bdc3c7; /* Grey out disabled buttons */
+    cursor: not-allowed;
+}
+h2 {
+    font-weight: bold;
+    color: #333333;
+}
+p {
+    color: #666666;
+    line-height: 1.5;
+}
+.line {
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0; /* Adjust vertical margin */
+}
+.line input
+{
+    display: inline-block;
+    width: 250px;
+    height: 25px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    text-align: left;
+}
+.line label
+{
+    position: relative;
+    float: left;
+    padding: 10px 10px 10px 40px;
+    display: block;
+    color: #666;
+
+}
+@media (max-width: 768px) {
+    .innerfram {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+button:hover {
+    background-color: #2979ff; /* Darker shade of blue */
+    color: #ffffff;
+}
+#editDescription
+{
+    border-width: 1px;
+    width: 400px;
+    height: 100px;
+}
+/* CSS for Delete and Edit Buttons */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: white;
+}
+
+#delete .DeleteButton {
+    background-color: #e74c3c; /* Red color for delete button */
+}
+
+.EditButton{
+    background-color: #3498db; /* Blue color for edit button */
+}
+.EditButton  a {
+    color: white;
+    text-decoration: none;
+}
+  /* Styling the icon */
+button i {
+    margin-right: 5px;
+}
+.red {
+    color: red; /* or any other style to make the heart red */
+}
+a
+{
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
